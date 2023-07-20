@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="humanoid">
+
+  <compiler coordinate="local" inertiafromgeom="true" />
+
+  <option timestep="0.01" />
+
+  <visual>
+    <!-- 定义视觉元素 -->
+  </visual>
+
+  <worldbody>
+    <!-- 定义世界的静态物体和地面 -->
+  </worldbody>
+
+  <actuator>
+    <!-- 定义执行器 -->
+  </actuator>
+
+  <asset>
+    <!-- 定义模型中用到的资源，如纹理、网格等 -->
+  </asset>
+
+  <default>
+    <!-- 定义默认的物理属性 -->
+  </default>
+
+  <body name="torso" pos="0 0 0">
+    <camera name="head_camera" pos="0 0 0.2" quat="0 0 0 1" fovy="60" type="perspective" />
+  </body>
+
+  <body name="left_leg" pos="0 -0.27 -0.05">
+    <!-- 定义左腿元素 -->
+  </body>
+
+  <body name="right_leg" pos="0 0.27 -0.05">
+    <!-- 定义右腿元素 -->
+  </body>
+
+  <joint name="torso_joint" type="free">
+    <!-- 定义躯干关节 -->
+    <site name="torso" pos="0 0 0" />
+    <site name="left_leg" pos="0 -0.27 -0.05" />
+    <site name="right_leg" pos="0 0.27 -0.05" />
+  </joint>
+
+  <joint name="left_leg_joint" type="hinge" axis="0 0 1">
+    <!-- 定义左腿关节 -->
+    <site name="left_leg" pos="0 -0.27 -0.05" />
+    <site name="left_foot" pos="0 -0.5 -0.05" />
+  </joint>
+
+  <joint name="right_leg_joint" type="hinge" axis="0 0 1">
+    <!-- 定义右腿关节 -->
+    <site name="right_leg" pos="0 0.27 -0.05" />
+    <site name="right_foot" pos="0 0.5 -0.05" />
+  </joint>
+
+</mujoco>
